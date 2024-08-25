@@ -24,7 +24,11 @@ def logout(sess):
 def protected(auth):
     print(f"Accessing protected page. Auth: {auth}")
     return fh.Titled(
-        "Protected Page", fh.H1(f"Welcome, {auth}!"), fh.A("Logout", href="/logout")
+        "Protected Page",
+        fh.P(f"Welcome, {auth}!"),
+        fh.A("Back", href="/"),
+        fh.P(),
+        fh.A("Logout", href="/logout"),
     )
 
 
@@ -33,13 +37,14 @@ def home(sess):
     if auth.is_authenticated(sess):
         user = sess["user"]
         print(f"User: {user}")
-        return fh.Div(
-            fh.Main(
-                fh.H1("Dashboard"),
-                # Add your main content here
-                cls="main-content",
-            ),
-            cls="page-container",
+        return fh.Titled(
+            "Dashboard",
+            fh.P(f"Welcome, {user}!"),
+            fh.P("You are logged in. View a protected page below."),
+            fh.A("Protected Page", href="/protected"),
+            fh.P(),
+            fh.P("Logout here:"),
+            fh.A("Logout", href="/logout"),
         )
 
     else:
