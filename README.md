@@ -14,4 +14,6 @@ This will take you to a login screen. Enter the email address and password for y
 
 ![login_screenshot](login_screenshot.png)
 
-If you enter the correct credentials, it will take you to a dashboard screen
+If you enter the correct credentials, it will take you to a dashboard screen.
+
+![dashboard_screenshot](dashboard_screenshot.png)
